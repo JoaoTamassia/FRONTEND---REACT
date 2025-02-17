@@ -9,6 +9,7 @@ import { Button } from "../../components/Button"
 import { Header } from "../../components/Header"
 import { Input } from "../../components/Input"
 
+import { api } from "../../services/api"
 import { Column, Container, CriarText, EsqueciText, Row, SubtitleLogin, Title, TitleLogin, Wrapper } from "./styles"
 
 const schema = yup.object({
@@ -24,12 +25,18 @@ const Login = () => {
         mode: 'onChange',
     });
 
-    console.log(isValid, errors)
-    const onSubmit = data => console.log(data);
-
-    const handleClickFeed = () => {
-        navigate('/feed');
-    }
+    const onSubmit = async FormData => {
+        try{
+            const { data } = await api.get(`users?email=${FormData.email}&password=${FormData.password}`)
+            if(data.length === 1){
+                navigate('/feed');}
+            else{
+                alert('Usuário ou senha inválidos')
+            }
+        }catch{
+            alert('Erro ao fazer login')
+        }
+    };
 
     return (<>
         <Header />
