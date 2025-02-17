@@ -20,7 +20,7 @@ const schema = yup.object({
 const Login = () => {
     const navigate = useNavigate();
 
-    const { control, handleSubmit, formState: { errors, isValid } } = useForm({
+    const { control, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(schema),
         mode: 'onChange',
     });
