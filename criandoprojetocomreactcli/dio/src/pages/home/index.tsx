@@ -29,7 +29,7 @@ const Home = () => {
                     Domine as tecnologias utilizadas pelas empresas mais inovadoras do mundo e encare seu novo
                         desafio profissional, evoluindo em comunidade com os melhores experts.
                 </TextContent>
-                <Button title="Começar agora" variant="secondary"d onClick={handleClickSignIn}/>
+                <Button title="Começar agora" variant="secondary" onClick={handleClickSignIn}/>
             </div>
             <div>
                 <img src={bannerImage} alt="Imagem Principal" />

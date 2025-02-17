@@ -26,7 +26,7 @@ const Register = () => {
         mode: 'onChange',
     });
 
-    const onSubmit = (data) => {
+    const onSubmit = (data: any) => {
         try{
             api.post('users', data)
             navigate('/login')
